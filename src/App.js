@@ -14,6 +14,7 @@ function App() {
   return (
     <div className="App">
       <Title>Home</Title>
+      
       {/* <Header adminTxt={"Teacher"}/> */}
 
 

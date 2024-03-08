@@ -1,0 +1,5 @@
+#sahil-viraj laptop account
+Host github.com-kiteretsu-daihyakka
+	HostName github.com
+	User git
+	IdentityFile ~/.ssh/viraj-st
