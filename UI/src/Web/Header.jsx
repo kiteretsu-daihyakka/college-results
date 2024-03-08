@@ -9,7 +9,7 @@ const Header = (props) => {
     let adminTxt = props.adminTxt;
     const [links, setLinks] = useState([
       // {"path":"home", "text":"Home", "title":"Home"}, 
-      {"path":"subjects", "text":"Subjects", "title":"Subjects"},
+      // {"path":"subjects", "text":"Subjects", "title":"Subjects"},
       {"path":"results", "text":"Results", "title":"Results"},
       {"path":`${adminTxt.toLowerCase()}-login`, "text":`${adminTxt} Login`, "title":`${adminTxt} Login`}
   ])
