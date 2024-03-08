@@ -1,0 +1,21 @@
+Teacher
+    -visit home page
+    -login
+        -data entry
+            -Student
+            -Subject
+            -Semester
+            -Marksheet
+    -search results
+Student
+    -visit home page
+    -not required login
+    -searches results
+
+links:
+    home
+    teacher login/logout
+    Student Results
+
+TODO:
+1. subject add

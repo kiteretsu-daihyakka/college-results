@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import Title from "./Web/Title"
+import 'bootstrap/dist/css/bootstrap.min.css';
+// import Header from "./Web/Header";
+// import Subjects from "./Teacher/Subject/Subjects";
+// import Sidebar from "./Web/Sidebar"
+
+// import Result from './Result/Result';
 
 function App() {
+  // let adminTxt = "Teacher";
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Title>Home</Title>
+      {/* <Header adminTxt={"Teacher"}/> */}
+
+
+      {/* <Sidebar/> */}
+      {/* <Subjects/> */}
     </div>
   );
 }

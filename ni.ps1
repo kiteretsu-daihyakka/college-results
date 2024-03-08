@@ -1,0 +1,1 @@
+npm install --save $args[0] $args[1]
