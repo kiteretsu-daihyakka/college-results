@@ -1,0 +1,26 @@
+.sem-card{
+    background-color: #E9F4FA;
+    font-family: "Red Hat Text";
+    font-weight: bold;
+    width: 90%; 
+}
+.sem-name{
+    font-size: 22px;
+}
+/* .vl {
+    border-right: 2px solid #6C6C69;
+    height: 90px;
+  } */
+.subCell, .studCell, .viewResultCell{
+    font-size: 13px;
+    text-align: center;
+    width: 100px;
+}
+.countLinkCell {
+    font-size: 18px;
+    opacity: 60%;
+}
+
+.subCell, .studCell{    
+    /* border-right: 1px solid #6C6C69; */
+}
