@@ -13,10 +13,10 @@ function SemesterCard(props) {
             type="button"
             className="btn"
             onClick={() => {
-              props.linkClickModal(true);
+              props.linkClickModal(props.semData['id']);
             }}
           >
-            {props.semData.subjCount}
+            {props.semData.subjects.length}
           </button>
         </span>
         {/* <br /> */}
