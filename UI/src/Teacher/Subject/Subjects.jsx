@@ -23,10 +23,10 @@ const Subjects = (props) => {
         setSemId(id);
     }
     return (<>
-        <h1>Subjects</h1>
         <br />
         <Semester onChange={onSemesterChange}/>
         <br />
+        <h3>Subjects:</h3>
         {subs.filter(sub => sub.semId === semId).map(sub => <Subject key={sub.id} name={sub.name}/>)}
         {/* <Add/> */}
     </>)
