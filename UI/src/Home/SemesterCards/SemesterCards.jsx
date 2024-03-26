@@ -2,25 +2,33 @@ import SemesterCard from "./SemesterCard";
 import { useEffect, useState } from "react";
 import "./SemesterCards.css";
 import SubjectModal from "../SubjectModal/SubjectModal";
+import axios from "axios";
 
-const SemesterCards = () =>{
-    const [allSemOverview, setallSemOverview] = useState([
-        {id:1,name:"Freshman Year - Fall Semester", subjCount:69,studCount:69},
-        {id:2,name:"Freshman Year - Spring Semester", subjCount:69,studCount:69},
-        {id:3,name:"Sophomore Year - Fall Semester", subjCount:69,studCount:69},
-        {id:4,name:"Sophomore Year - Spring Semester", subjCount:69,studCount:69},
-    ]);
-    const [subjectModalVisible, subjectModalShow] = useState(false);
-    useEffect(()=>console.log(subjectModalVisible),[subjectModalVisible])
-    return (
-        <>
-            <SubjectModal show={subjectModalVisible} onClose={()=>subjectModalShow(false)}/>
-            <table className="sem-table">
-            <tbody>
-                {allSemOverview.map(sem=><SemesterCard semData={sem} key={sem.id} linkClickModal={subjectModalShow}/>)}
-            </tbody>
-        </table>
-        </>
-    )
-}
-export default SemesterCards
+const SemesterCards = (props) => {
+  
+  const [allSemOverview, setallSemOverview] = useState(props.allSemOverview);
+  const [semesterSelected, setSemesterSelected] = useState(0);
+  
+  return (
+    <>
+      <SubjectModal
+        show={semesterSelected !== 0}
+        onClose={() => setSemesterSelected(0)}
+        semID={semesterSelected}
+        allSem={allSemOverview}
+      />
+      <table className="sem-table">
+        <tbody>
+          {allSemOverview.map((sem) => (
+            <SemesterCard
+              semData={sem}
+              key={sem.id}
+              linkClickModal={setSemesterSelected}
+            />
+          ))}
+        </tbody>
+      </table>
+    </>
+  );
+};
+export default SemesterCards;
