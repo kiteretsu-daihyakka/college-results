@@ -1,21 +1,19 @@
 .container{
     
 }
-.link button{
+.link{
     color: white;
     font-family: "Red Hat Text", 'Times New Roman';
     font-weight: bold;
     font-size: 18px;
     /* border: 1px solid black; */
-    align-content: end;
-    box-shadow: none;
-    outline: none;
-    background-color: transparent;
+    /* align-content: end; */
+    /* box-shadow: none; */
+    /* outline: none; */
+    /* background-color: transparent; */
+    margin-right: 30px;
     /* text-decoration: underline; */
     /* border: none; */
-}
-.link .btn:hover{
-    color: white;
 }
 .logo{
     font-family: "Racing Sans One", sans-serif;
@@ -23,13 +21,12 @@
     font-size: 35px;
 }
 .header{
-    background-color: #E97979;
+    background-color: #0F3948;
 }
 .header-container{
     margin-left: 20px;
-    /* border: 1px solid black; */
     margin-right: 20px;
 }
-.mbtn{
-
-}
+/* .Teacherlogin .btn{
+    
+} */

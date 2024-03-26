@@ -4,12 +4,7 @@ import { Nav } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
 const Semester = (props) => {
-    const [sems, setSems] = useState([{ id: "1", name: "Semester 1" },
-    { id: "2", name: "Semester 2" },
-    { id: "3", name: "Semester 3" },
-        // { id: "4", name: "Semester 4" },
-        // { id: "5", name: "Semester 5" }
-    ]);
+    const [sems, setSems] = useState(props.allSemOverview);
     // useEffect(() => {
     //     // static data
     //     let data = [
