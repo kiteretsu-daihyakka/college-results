@@ -5,6 +5,7 @@ import Navbar from "react-bootstrap/Navbar";
 import "./Header.css";
 import {NavLink, Link, useNavigate} from "react-router-dom";
 // import Button from "@mui/material/Button";
+import Logo from './Logo'
 
 const Header = (props) => {
   const navi = useNavigate();
@@ -27,14 +28,14 @@ const Header = (props) => {
     );
   });
   function onLoginClick(){
-    navi(adminTxt.toLowerCase().concat("-login"))
+    navi("/".concat(adminTxt.toLowerCase().concat("-login")))
   }
   return (
     <>
       <Navbar className="header">
         <Container className="header-container" style={{maxWidth: "100%"}}>
-          <Navbar.Brand to="/" as={Link} className="logo">
-            Just College
+          <Navbar.Brand to="/" as={Link} style={{color: "white"}}>
+            <Logo/>
           </Navbar.Brand>
           <Nav>
             {links_output}
