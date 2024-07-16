@@ -1,21 +1,66 @@
+.dialog-modal-container {
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.student-page-modal .dialog-modal-container {
+  top: auto;
+  height: 500px;
+  width: 100%;
+  margin-left: 19%;
+  position: fixed;
+  z-index: 1;
+}
+.student-page-modal .dialog-modal{
+  margin: 0;
+}
 .dialog-modal {
-    position: absolute;
-    max-width: 20rem;
-    padding: 2rem;
-    border: 0;
-    border-radius: 0.5rem;
-    box-shadow: 0 0 0.5rem 0.25rem hsl(0 0% 0% / 10%);
+  width: 23rem;
+  border: 0;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0.5rem 0.25rem hsl(0 0% 0% / 10%);
+  margin: auto;
+  margin-top: 3%;
+  padding: 0px;
+  z-index: 1;
 }
-.dialog-modal button{
-    background-color: #0F3948;
-    color: white;
-    font-weight: bold;
-    letter-spacing: 0.5px;
-    border-radius: 20px;
-    width: 100px;
-    height: 40px;
-    border: none;
+.dialog-modal button {
+  background-color: #0f3948;
+  color: white;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  border-radius: 20px;
+  width: 80px;
+  height: 30px;
+  border: none;
+  margin-top: 18%;
+  margin-bottom: 10%;
 }
-.dialog-modal td{
-    border-bottom: 1px solid #D9D9D9;
+.backdrop-modal {
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+.student-page-modal .backdrop-modal {
+  position: fixed;
+  width: 100%;
+  top: auto;
+}
+.backdrop-entire{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+@media screen and (max-width: 500px){
+    .dialog-modal{
+        width: 72%;
+        border-radius: 0.3rem;
+    }
 }
