@@ -1,0 +1,21 @@
+.toast{
+    background-color: #29A1CD;
+    color: white;
+    /* display: block ; */
+    height: 50px;
+    display: flex !important;
+    align-items: center;
+}
+.toast img{
+    height: 25px;
+    cursor: pointer;
+}
+.progress.active:before {
+    animation: progress 5s linear forwards;
+}
+  
+@keyframes progress {
+    100% {
+        right: 100%;
+    }
+}
