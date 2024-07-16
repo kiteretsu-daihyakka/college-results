@@ -4,7 +4,6 @@ import { Nav } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
 const Semester = (props) => {
-    const [sems, setSems] = useState(props.allSemOverview);
     // useEffect(() => {
     //     // static data
     //     let data = [
@@ -26,7 +25,7 @@ const Semester = (props) => {
             style={{ width: "70%", margin: "auto" }} defaultValue={""}
             >
             <option value="" disabled>Select Semester</option>
-            {sems.map((sem) => <option key={sem.id} value={sem.id}>{sem.name}</option>)}
+            {props.allSemOverview.map((sem) => <option key={sem.id} value={sem.id}>{sem.name}</option>)}
         </select>
     </>)
 }
