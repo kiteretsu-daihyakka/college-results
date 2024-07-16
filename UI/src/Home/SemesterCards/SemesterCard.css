@@ -2,25 +2,77 @@
     background-color: #E9F4FA;
     font-family: "Red Hat Text";
     font-weight: bold;
-    width: 90%; 
+    color: black;
+    border-radius: 15px;
+    display: flex;
+    height: 17%;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 2px solid #0F3948;
+    box-shadow: 0 3px 2px #0f394850;
+}
+.sem-card.text-loader{
+    justify-content: left;
+    gap: 42px;
+}
+.sem-card.text-loader div:first-child{
+    width: 73%;
+}
+.sem-card div:first-child{
+    width: 65%;
+}
+.countLinkCell.inactive{
+    cursor: default;
 }
 .sem-name{
-    font-size: 22px;
+    font-size: 24px;
 }
-/* .vl {
-    border-right: 2px solid #6C6C69;
-    height: 90px;
-  } */
 .subCell, .studCell, .viewResultCell{
-    font-size: 13px;
+    font-size: 15px;
     text-align: center;
-    width: 100px;
+    letter-spacing: 1px;
 }
 .countLinkCell {
-    font-size: 18px;
-    opacity: 60%;
+    font-size: 22px;
+    color: rgba(0, 0, 0, 0.514);
 }
-
-.subCell, .studCell{    
-    /* border-right: 1px solid #6C6C69; */
+.subCell div, .studCell div, .viewResultCell{
+    cursor: pointer;
+}
+/* Mobile Screen*/
+.mobileScreen .sem-card{
+    align-content: center;
+    flex-wrap: wrap;
+    height: auto;
+}
+.mobileScreen .sem-card div:first-child{
+    align-self: self-start;
+    flex-basis: 100%;
+}
+.mobileScreen .sem-name{
+    font-size: 15px;
+    text-align: center;
+    padding-top: 8px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #6c6c69bd;
+}
+.mobileScreen .subCell,.mobileScreen .studCell,.mobileScreen .viewResultCell{
+    font-size: 11px;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-self: center;
+    padding: 5px;
+}
+.mobileScreen .countLinkCell{
+    font-size: 20px;
+}
+.mobileScreen .viewResultCell.underlined{
+    text-decoration-thickness: 1px;
+}
+.mobileScreen .vl{
+    align-self: flex-start;
+    height: 62%;
+}
+.loadingSquare{
+    margin-right: 100px;
 }
