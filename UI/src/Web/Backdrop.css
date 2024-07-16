@@ -1,0 +1,4 @@
+.backdrop{
+    height: 100%;
+    backdrop-filter: blur(1px);
+}
