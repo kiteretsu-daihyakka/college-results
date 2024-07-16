@@ -1,12 +1,33 @@
+#root{
+  height: 100%;  
+}
+
 body {
-  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: white;
+  height: 100vh;
+  overflow: auto;
 }
+body:has(.sem-table){
+  background-image: url('./images/PNG/homepage_background.png');
+    /* height: 100%; */
+    background-position: 5px 7px;
+    background-repeat: no-repeat;
+    background-size: 100% 98%;
+}
+body:has(.mobileScreen .sem-table){
+  /* TODO: Take entire image because on tablet screen below image is not suitable. */
+  /* background-image: url('./images/PNG/homepage_background_mobile.jpg'); */
 
+    /* height: 100%; */
+    background-position: 0px 80px;
+    /* background-repeat: no-repeat; */
+    background-size: 100% 96%;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
