@@ -1,56 +1,91 @@
-import {useState} from "react";
+import { useState } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import "./Header.css";
-import {NavLink, Link, useNavigate} from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 // import Button from "@mui/material/Button";
-import Logo from './Logo'
+import Logo from "./Logo";
+import MenuPNG from "../images/PNG/menu.png";
+import { useMediaQuery } from "react-responsive";
+import HamburgerMenu from "./HamburgerMenu";
+import TeacherLoginBtn, {TeacherLogoutBtn} from "./Navigation/TeacherLoginBtn";
+import {useAuth} from "../hooks/AuthProvider";
 
 const Header = (props) => {
+  const auth = useAuth();
   const navi = useNavigate();
-  let adminTxt = props.adminTxt;
   const [links, setLinks] = useState([
     // {"path":"home", "text":"Home", "title":"Home"},
-    {path: "results", text: "Results", title: "Results"},
-    {path: "subjects", text: "Subjects", title: "Subjects"}
+    { path: "results", text: "Results", title: "Results" },
+    { path: "subjects", text: "Subjects", title: "Subjects" },
   ]);
+  const [mobileMenuOpen, setmobileMenuOpen] = useState("");
+
   let links_output = links.map((lnk) => {
     return (
-          <Nav.Link
-            as={Link}
-            to={`/${lnk["path"]}`}
-            className="link"
-            key={lnk["title"]}
-          >
-              {lnk["text"]}
-          </Nav.Link>
+      <Nav.Link
+        as={Link}
+        to={`/${lnk["path"]}`}
+        className="link"
+        key={lnk["title"]}
+        onClick={(e)=>{
+          e.preventDefault(); 
+          navi(`/${lnk["path"]}`);
+          setmobileMenuOpen("");
+        }}
+      >
+        {lnk["text"]}
+      </Nav.Link>
     );
   });
-  function onLoginClick(){
-    navi("/".concat(adminTxt.toLowerCase().concat("-login")))
+
+  function onHomeLinkClick() {
+    navi("/");
+    setmobileMenuOpen("");
   }
+  
   return (
     <>
-      <Navbar className="header">
-        <Container className="header-container" style={{maxWidth: "100%"}}>
-          <Navbar.Brand to="/" as={Link} style={{color: "white"}}>
-            <Logo/>
+      {mobileMenuOpen !== ""  && props.isMobileScreen && (
+        <HamburgerMenu
+          links={links_output}
+          onHomeLinkClick={onHomeLinkClick}
+          mobileMenuOpen={mobileMenuOpen}
+          onClose={() => setmobileMenuOpen("")}
+          teacherLoggedIn={auth.teacher}
+        />
+      )}
+      <Navbar
+        className={`header ${
+          props.isMobileScreen ? "mobileScreen".concat(" ", mobileMenuOpen) : ""
+        }`}
+      >
+        <Container className="header-container">
+          {props.isMobileScreen && (
+            <div className="menuIcnDiv">
+              <img
+                src={MenuPNG}
+                className="menuIcn"
+                onClick={() => setmobileMenuOpen("menuOpen")}
+                alt="menu icon"
+              />
+            </div>
+          )}
+
+          <Navbar.Brand to="/" as={Link} id="logo">
+            <Logo onClick={onHomeLinkClick} />
           </Navbar.Brand>
-          <Nav>
-            {links_output}
-            {/* <div className="Teacherlogin"> */}
-            <button className="btn" type="button" style={{
-              color: "#6C6C69",
-              marginLeft: "13px",
-              border: "none",
-              marginRight: "23px",
-              backgroundColor:"white"
-            }} onClick={onLoginClick}>
-              {adminTxt} Login
-            </button>
-            {/* </div> */}
-          </Nav>
+          {!props.isMobileScreen && (
+            <Nav>
+              {links_output}
+              {!auth.teacher ? (
+                <TeacherLoginBtn className="link BigScreenLoginBtnRadius" />
+              ) : (
+                <TeacherLogoutBtn className="link BigScreenLoginBtnRadius" />
+              )}
+            </Nav>
+          )}
         </Container>
       </Navbar>
     </>
