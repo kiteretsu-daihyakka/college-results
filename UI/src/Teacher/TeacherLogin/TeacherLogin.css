@@ -1,147 +1,146 @@
-body{
+section.teacherLoginSection{
+    height: 100%;
     background-color: #E9F4FA;
     font-family: "Red Hat Text", sans-serif;
-    /* position: relative; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
+.disabledState.btn, .disabledState.btn:hover, .disabledState.btn:focus{
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: #0F3948;
+    color: white;
+}
 .TeacherLogin{
-    margin-left: auto;
-    margin-right: auto;    
     background-color: white;
-    width: 50%;
-    height: 420px;
-    /* height: auto; */
+    height: 65%;
     border-radius: 8px;
-    margin-top: 8%;
     box-shadow: 0 3px 5px rgb(156, 156, 156) ;
+    width: 45%;
+}
+.TeacherLogin.increaseHeight{
+    height: 65%;
+}
+.h3{
+    margin-bottom: 0%;
+}
+.TeacherLogin form{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    justify-content: center;
 }
 .TeacherLoginLogo{
     line-height: 95%;
-    width: 120px;
-    text-wrap: wrap;
+    width: 132px;
     text-align: center;
-    letter-spacing: 0.5px;
-    padding-bottom: 20px;
-}
-.changeEmailLnk.inactive{
-    visibility: hidden;
+    letter-spacing: 1px;
 }
 .changeEmailLnk{
-    padding-top: 20px;
-    padding-left: 20px;
+    align-self: flex-start;
     cursor: pointer;
     font-size: .9em;
+    margin-left: 20px;
+    margin-top: -25px;
 }
-.TeacherLogin, .TeacherLogin .checkEmailBtn{
+.TeacherLogin label, .TeacherLogin, .TeacherLogin .checkEmailBtn{
     font-weight: bold;
 }
 .hide{
     visibility: hidden;
 }
-.TeacherLogin p{
-    width:70%;
-    font-weight: bold;
-    margin: auto;
-    margin-top: 5px;
-    letter-spacing: 0.5px;
-}
-.checkEmailBtnDiv{
-    text-align:center;
-    padding-top: 10px;
-    /* padding-bottom: 35px; */
-}
 .checkEmailBtn{
-    color: white;
-    background-color: #0F3948;
-    border-radius: 38px;
-    width: 190px;
-    height: 55px;
+    width: 170px;    
 }
-.checkEmailBtn.btn{
+.checkEmailBtn, .checkPasswordBtn{
+    height: 50px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.checkPasswordBtn{
+    width: 190px;
+}
+.TeacherLogin label{
     letter-spacing: 0.5px;
 }
-.checkEmailBtn:focus,.checkEmailBtn:hover{
-    background-color: #0F3948;
-    color: white;
-}
-.TeacherLogin *{
-    margin: auto;
-}
-.InvalidEmail input, .InvalidEmail input.form-control:focus, .InvalidEmail input.form-control:hover{
+.InvalidEmail input, .InvalidEmail input.form-control:focus, .InvalidEmail input.form-control:hover, .IncorrectPassword .passwordDiv{
     border: 1px solid #EE1818;
 }
-
-.InvalidEmail p{
+.enterEmail, .validatedEmail, .TakePassword, .error{
+    margin: auto;
+    width: 60%;
+}
+.TakePassword{
+    margin-top: 15px;
+}
+.credentials, .changeEmailDiv{
+    width: 100%;
+}
+.InvalidEmail label, .IncorrectPassword label, .error{
     color: #EE1818;
+}
+.error{
+    padding-top: 8px;
 }
 .TeacherLogin .form-control:hover, .TeacherLogin .form-control:focus{
     box-shadow: none;
     border: 1px solid black;
 }
 .TeacherLogin .form-control{
-    /* background-color: #E9F4FA; */
-    width:70%;
     height: 55px;
-    /* border: 1px solid #0F3948; */
-    /* box-shadow: inset 0 1px 1px rgba(0,0,0,0.075); */
     box-shadow: 1 0 0 0.1rem rgba(0, 0, 0, 0.25);
     border-radius: 5px;
-    
-}
-.showHidePasswordIcon img{
-    height: 30px;
-}
-.passwordDiv .form-control:focus, .passwordDiv .form-control:hover{
-    border: transparent;
-}
-.passwordDiv .form-control{
-    width: 92%;
-    height: 53px;
-    float: left;
-    border: transparent;
-}
-
-.passwordDiv{
-    border: 1px solid black;
-    box-shadow: 1 0 0 0.1rem rgba(0, 0, 0, 0.25);
-    border-radius: 5px;
-    height: 55px;
-    width: 70%;
+    font-size: large;
+    width: 100%;
 }
 .showHidePasswordIcon{
-    /* float: left; */
-    /* position: relative; */
-    left: -50px;
-    padding-top: 11px;
-    /* margin: auto; */
-    /* text-align: center; */
+    height: 30px;
+    padding-right: 17px;
 }
-/* .TeacherLogin .form-control:focus{
-    outline: none;
-} */
-/* .TeacherLogin .form-control:focus{
-    background-color: #E9F4FA;
-} */
-/* .loginBtn{
-    background-color: #A8D8EB;
+.passwordDiv .form-control, .passwordDiv .form-control:focus, .passwordDiv .form-control:hover{
+    border: none;
 }
-.cancelBtn{
-    background-color: #D9D9D9;
-} */
+.passwordDiv .form-control{
+    font-size: large;
+    height: 50px;
+}
+.betterPasswordMaskStyle{
+    letter-spacing: 0.05em;
+    font-family: Verdana;
+}
+.passwordDiv{
+    border: 1px solid black;
+    border-radius: 5px;
+    height: 55px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
 .TeacherLoginTitle{
-    /* margin: auto; */
-    /* border: 1px solid black; */
-    /* width: 100%; */
-    /* margin-top: 25px; */
-    margin-bottom: 20px;
-    text-align: center;
-    font-family: "Red Hat Text", sans-serif;
     font-weight: bold;
 }
 .validatedEmail label, .validatedEmail .form-control{
-    font-weight: lighter;
+    opacity: 50%;
     cursor: not-allowed;
 }
 .validatedEmail .form-control:hover, .validatedEmail .form-control:focus{
     border: 1px solid #dee2e6;
+    
+}
+
+@media screen and (max-width: 870px){
+    .TeacherLogin{
+        width: 90%;
+        height: 55%;
+    }
+    .TeacherLogin.increaseHeight{
+        height: 60%;
+    }
+    .enterEmail, .validatedEmail, .TakePassword, .error{
+        margin: auto;
+        width: 88%;
+    }
 }
