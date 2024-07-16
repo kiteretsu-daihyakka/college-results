@@ -1,0 +1,8 @@
+.underlined{
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    text-decoration-thickness: 2px;
+}
+.mobileScreen .underlined{
+    text-decoration-thickness: 2px;
+}
