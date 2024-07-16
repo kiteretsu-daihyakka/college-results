@@ -1,0 +1,26 @@
+.jst-btn {
+  background-color: white;
+  color: #0f3948;
+  letter-spacing: 0.5px;
+  border-radius: 38px;
+  font-weight: bold;
+}
+.jst-btn:hover {
+  color: white;
+  background-color: #0f3948;
+}
+.jst-btn,
+.jst-btn:hover {
+  border: 2px solid #0f3948;
+}
+.jst-btn.primary {
+  background-color: #0f3948;
+  color: white;
+}
+.jst-btn.primary:hover {
+  color: #0f3948;
+  background-color: white;
+}
+.studentActionBtn {
+  height: 30px;
+}
