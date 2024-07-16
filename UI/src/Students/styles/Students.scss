@@ -1,0 +1,245 @@
+.students-page {
+    display: grid;
+    grid-template-columns: 28% auto;
+    grid-template-areas: "success success" "searchBar searchBar" "studentActions studentActions" "semesterFilter studentsTable";
+    font-family: "Red Hat Text";
+}
+
+.messages {
+    grid-area: success;
+    height: 70px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.searchStudent {
+    grid-area: searchBar;
+    // border-width: 0 0 1px 0;
+    border-bottom: 1px solid;
+    border-color: black;
+    margin-left: 25px;
+    padding-left: 20px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: flex-end;
+
+}
+
+.searchStudent input {
+    border-width: 0;
+    border-color: black;
+    outline: none;
+    width: 90%;
+}
+
+.searchStudent img {
+    width: 17px;
+    height: 17px;
+
+}
+
+.semesterFilter {
+    grid-area: semesterFilter;
+    display: flex;
+    flex-direction: column;
+    width: 95%
+}
+
+.semesterFilterHeader {
+    border-bottom: 1px solid;
+    border-bottom-color: #8a8a8a;
+}
+
+.semesterFilterHeader,
+.SemesterTabFilter {
+    padding-left: 30px;
+}
+
+.semesterFilterHeader,
+.SemesterTabFilter {
+    align-content: center;
+}
+
+.activeSemesterTabFilter {
+    border-left: 5px solid #0F3948;
+    padding-left: 25px;
+}
+
+.semesterFilterHeader,
+.activeSemesterTabFilter {
+    font-weight: bold;
+}
+
+.semesterFilterHeader,
+.SemesterTabFilter {
+    height: 41px;
+}
+
+.SemesterTabFilter {
+    background-color: #E9F4FA;
+
+    border-bottom: 1px solid;
+    border-bottom-color: #C3EAFF;
+    cursor: pointer;
+}
+
+.SemesterTabFilter:hover {
+    background-color: #a6dbf084;
+}
+
+.studentActions {
+    grid-area: studentActions;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 30px;
+    width: 95%;
+    height: 45px;
+}
+
+.studentActions img {
+    height: 19px;
+}
+
+// .studentActions button{
+
+// }
+.studentActions button span {
+    font-weight: bold;
+    font-size: small;
+    // bottom: 50px;
+}
+
+.studentsTable {
+    grid-area: studentsTable;
+    width: 95%;
+    font-size: 14px;
+    // display: grid;
+    // grid-template-columns: auto auto auto;
+    // grid-template-areas: 'ID' 'Name' 'Email';
+}
+
+.studentsTable .checkbox {
+    width: 5%;
+    text-align: center;
+    padding-top: 7px;
+    // cursor: pointer;
+}
+
+.studentsTable .checkbox input {
+    height: 15px;
+    width: 15px;
+    cursor: pointer;
+}
+
+.studentsTable .id {
+    // grid-area: ID;
+    width: 6%;
+}
+
+.studentsTable .name {
+    // grid-area: Name;
+    width: 25%;
+}
+
+.studentsTable .email {
+    // grid-area: Email;
+    width: 45%;
+}
+
+.studentsTable .menu {
+    // grid-area: Email;
+    width: 190px;
+    text-align: right;
+    display: flex;
+    height: 40px;
+    justify-content: flex-end;
+    gap: 15px;
+    padding-right: 35px;
+    align-items: center;
+}
+
+.studentsTable tr {
+    border-bottom: 1px solid black;
+}
+
+.studentsTable tbody tr:hover,
+.selectedRow {
+    background-color: #F3F3F3;
+}
+
+.noStudents {
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+}
+
+.noStudents p {
+    padding-top: 10px;
+}
+
+.add-student {
+    height: 30px;
+    border: 2px solid;
+}
+
+.add-student:hover {
+    border: 2px solid;
+}
+
+.addStudentModal {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-areas: "Label1 Input1" "Label2 Input2" "Label3 Input3";
+}
+.student-page-modal{
+    grid-area: studentsTable;       
+}
+.newStudentFieldLabel1 {
+    grid-area: Label1;
+    text-align: right;
+}
+
+.newStudentFieldInput1 {
+    grid-area: Input1;
+    appearance: none;
+}
+
+.newStudentFieldInput1.disabled {
+    border: 1px solid rgb(176, 176, 176);
+
+}
+
+.newStudentFieldLabel2 {
+    grid-area: Label2;
+    text-align: right;
+}
+
+.newStudentFieldInput2 {
+    grid-area: Input2;
+}
+
+.newStudentFieldLabel3 {
+    grid-area: Label3;
+    text-align: right;
+}
+
+.newStudentFieldInput3 {
+    grid-area: Input3;
+    // box-shadow: 0 0 0.5rem 0.1rem #0F3948;
+}
+
+// .addStudentModal .error{
+//     grid-area: error;
+// }
+.studentActionTable {
+    height: 18px;
+    opacity: 90%;
+}
+
+.studentActionTable.deleteIcon {
+    width: 13px;
+}
