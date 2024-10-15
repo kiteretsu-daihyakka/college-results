@@ -1,6 +1,6 @@
 .students-page {
     display: grid;
-    grid-template-columns: 28% auto;
+    grid-template-columns: 30% auto;
     grid-template-areas: "success success" "searchBar searchBar" "studentActions studentActions" "semesterFilter studentsTable";
     font-family: "Red Hat Text";
 }
@@ -43,7 +43,7 @@
     grid-area: semesterFilter;
     display: flex;
     flex-direction: column;
-    width: 95%
+    width: 90%;
 }
 
 .semesterFilterHeader {
@@ -73,12 +73,11 @@
 
 .semesterFilterHeader,
 .SemesterTabFilter {
-    height: 41px;
+    height: 45px;
 }
 
 .SemesterTabFilter {
     background-color: #E9F4FA;
-
     border-bottom: 1px solid;
     border-bottom-color: #C3EAFF;
     cursor: pointer;
@@ -100,10 +99,17 @@
 
 .studentActions img {
     height: 19px;
+    margin-top: 3px;
+    margin-right: 5px;
+}
+
+#add-student img {
+    margin-top: 1px;
+    padding-bottom: 3px;
 }
 
 // .studentActions button{
-
+//     cursor: pointer;
 // }
 .studentActions button span {
     font-weight: bold;
@@ -113,18 +119,28 @@
 
 .studentsTable {
     grid-area: studentsTable;
+    // grid-template-areas: "Checkbox ID Name Email SingleActions";
+    // display: grid;
     width: 95%;
     font-size: 14px;
+    padding-top: 5px;
     // display: grid;
     // grid-template-columns: auto auto auto;
     // grid-template-areas: 'ID' 'Name' 'Email';
 }
 
 .studentsTable .checkbox {
-    width: 5%;
-    text-align: center;
+    width: 13%;
+    // grid-area: "Checkbox";
+    // text-align: center;
     padding-top: 7px;
+    padding-left: 15px;
     // cursor: pointer;
+}
+
+.studentsTable td {
+
+    height: 35px;
 }
 
 .studentsTable .checkbox input {
@@ -133,14 +149,14 @@
     cursor: pointer;
 }
 
-.studentsTable .id {
-    // grid-area: ID;
-    width: 6%;
-}
+// .studentsTable .id {
+//     // grid-area: ID;
+//     width: 6%;
+// }
 
 .studentsTable .name {
     // grid-area: Name;
-    width: 25%;
+    width: 30%;
 }
 
 .studentsTable .email {
@@ -148,15 +164,20 @@
     width: 45%;
 }
 
+.studentsTable .menuHeader {
+    align-items: center;
+    // padding-left: 16px;
+}
+
 .studentsTable .menu {
-    // grid-area: Email;
+    // grid-area: SingleActions;
     width: 190px;
-    text-align: right;
+    text-align: center;
     display: flex;
-    height: 40px;
-    justify-content: flex-end;
+    // height: 35px;
+    // justify-content: center;
     gap: 15px;
-    padding-right: 35px;
+    // padding-right: 35px;
     align-items: center;
 }
 
@@ -182,7 +203,7 @@
 }
 
 .add-student {
-    height: 30px;
+    // height: 30px;
     border: 2px solid;
 }
 
@@ -192,12 +213,29 @@
 
 .addStudentModal {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 30% 60%;
     grid-template-areas: "Label1 Input1" "Label2 Input2" "Label3 Input3";
+    row-gap: 10px;
+    padding-top: 6%;
+    gap: 25px;
+    align-items: center;
 }
-.student-page-modal{
-    grid-area: studentsTable;       
+
+.addStudentModal label {
+    font-weight: bold;
 }
+.addStudentModal input, .addStudentModal select {
+    height: 40px;
+}
+.addStudentModal label,
+.addStudentModal input {
+    font-size: 15px;
+}
+
+.student-page-modal {
+    grid-area: studentsTable;
+}
+
 .newStudentFieldLabel1 {
     grid-area: Label1;
     text-align: right;
@@ -210,7 +248,6 @@
 
 .newStudentFieldInput1.disabled {
     border: 1px solid rgb(176, 176, 176);
-
 }
 
 .newStudentFieldLabel2 {
@@ -237,7 +274,8 @@
 // }
 .studentActionTable {
     height: 18px;
-    opacity: 90%;
+    margin-right: 5px;
+    // opacity: 90%;
 }
 
 .studentActionTable.deleteIcon {
