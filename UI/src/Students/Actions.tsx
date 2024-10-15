@@ -1,12 +1,8 @@
 import React, { useRef } from "react";
 import { useState } from "react";
 import Button from "../Web/Button";
-import { AddStudent } from "./AddStudent.tsx";
-import { EditStudent } from "./EditStudent.tsx";
 import { Delete } from "./Delete.tsx";
 import { ChangeSem } from "./ChangeSem.tsx";
-
-import DeleteNoShadow from "../images/PNG/delete-no-shadow.png";
 
 import DeleteDark from "../images/PNG/delete-dark.png";
 import ExchangeDark from "../images/PNG/exchange-dark.png";
@@ -16,7 +12,6 @@ import AddStudentWhite from "../images/PNG/add-student-white.png";
 import DeleteWhite from "../images/PNG/delete-white.png";
 import ExchangeWhite from "../images/PNG/exchange-white.png";
 
-import EditPNG from "../images/PNG/EditPNG.png";
 import { useAuth } from "../hooks/AuthProvider";
 import { StudentForm } from "./StudentForm.tsx";
 
@@ -27,11 +22,9 @@ export const Actions = (props) => {
   const ExchangeImgRef = useRef(null);
   const StudentAddImgRef = useRef(null);
 
-  const [showDeleteModal, setshowDeleteModal] = useState(false);
   const [showChangeSemModal, setshowChangeSemModal] = useState(false);
-  const [studentDetailEdit, setstudentDetailEdit] = useState(null);
   const [showAddStudentModal, setshowAddStudentModal] = useState(false);
-  const [showEditStudentModal, setshowEditStudentModal] = useState(false);
+  
   const {
     studentsData,
     IDs_studentSelected,
@@ -44,17 +37,13 @@ export const Actions = (props) => {
 
   const showAddModal = () => {
     setshowAddStudentModal(true);
-  }
+  };
   const hideAddModal = () => {
     setshowAddStudentModal(false);
-  }
-  const showEditModal = (student) => {
-    setshowEditStudentModal(true);
-    setstudentDetailEdit(student);
-  }
+  };
   const hideEditModal = () => {
-    setshowEditStudentModal(false);
-  }
+    props.setshowEditStudentModal(false);
+  };
   // function handleMouseEnter(e) {
   //   if (e.target.id === "delete") {
   //     DeleteImgRef.current.src = DeleteWhite;
@@ -87,23 +76,31 @@ export const Actions = (props) => {
                 <Button
                   className="studentActionBtn"
                   id="exchange"
-                  onMouseOver={() => ExchangeImgRef.current.src = ExchangeWhite}
-                  onMouseOut={() => ExchangeImgRef.current.src = ExchangeDark}
+                  onMouseOver={() =>
+                    (ExchangeImgRef.current.src = ExchangeWhite)
+                  }
+                  onMouseOut={() => (ExchangeImgRef.current.src = ExchangeDark)}
                   onClick={() => setshowChangeSemModal(true)}
                 >
-                  <img src={ExchangeDark} alt="Change Semester" 
-                  ref={ExchangeImgRef}
+                  <img
+                    src={ExchangeDark}
+                    alt="Change Semester"
+                    ref={ExchangeImgRef}
                   />
                   <span>Change Semester</span>
                 </Button>
                 <Button
                   className="studentActionBtn"
                   id="delete"
-                  onMouseOver={() => DeleteImgRef.current.src = DeleteWhite}
-                  onMouseOut={() => DeleteImgRef.current.src = DeleteDark}
-                  onClick={() => setshowDeleteModal(true)}
+                  onMouseOver={() => (DeleteImgRef.current.src = DeleteWhite)}
+                  onMouseOut={() => (DeleteImgRef.current.src = DeleteDark)}
+                  onClick={() => props.setShowDeleteStudentModal(true)}
                 >
-                  <img src={DeleteDark} alt="Delete Selected Student(s)" ref={DeleteImgRef}/>
+                  <img
+                    src={DeleteDark}
+                    alt="Delete Selected Student(s)"
+                    ref={DeleteImgRef}
+                  />
                   <span>Delete</span>
                 </Button>
               </>
@@ -111,48 +108,58 @@ export const Actions = (props) => {
             <Button
               className="studentActionBtn primary"
               id="add-student"
-              onMouseOver={() => StudentAddImgRef.current.src = AddStudentDark}
-              onMouseOut={() => StudentAddImgRef.current.src = AddStudentWhite}
+              onMouseOver={() =>
+                (StudentAddImgRef.current.src = AddStudentDark)
+              }
+              onMouseOut={() =>
+                (StudentAddImgRef.current.src = AddStudentWhite)
+              }
               onClick={showAddModal}
             >
-              <img src={AddStudentWhite} alt="Add Student" ref={StudentAddImgRef}/>
+              <img
+                src={AddStudentWhite}
+                alt="Add Student"
+                ref={StudentAddImgRef}
+              />
               <span>Add Student</span>
             </Button>
           </>
         )}
       </div>
       <>
-      {(showAddStudentModal || showEditStudentModal) && 
-        <StudentForm
-          mode={showAddStudentModal ? "Add" : "Edit"}
-          showModal={props.showModal}
-          hideModal={props.hideModal}
-          current_semID={props.current_semID}
-          semesters={props.semesters}
-          refresh={props.refresh}
-          studentDetail={
-            showAddStudentModal
-              ? { id: "", name: "", email: "" }
-              : props.studentDetail
-          }
-        />
-        }
-        {showDeleteModal && (
+        {(showAddStudentModal || props.showEditStudentModal) && (
+          <StudentForm
+            mode={showAddStudentModal ? "Add" : "Edit"}
+            // showModal={props.showModal}
+            hideModal={showAddStudentModal ? hideAddModal : hideEditModal}
+            current_semID={props.current_semID}
+            semesters={props.semesters}
+            fetchSemesterWiseStudent={props.fetchSemesterWiseStudent}
+            studentDetail={
+              showAddStudentModal
+                ? { id: "", name: "", email: "" }
+                : props.studentDetail
+            }
+          />
+        )}
+        {props.showDeleteStudentModal && (
           <Delete
             onSuccessDelete={() => {
-              setIDs_studentSelected([]);
-              setshowDeleteModal(false);
-              fetchSemesterWiseStudent(current_semID);
+              props.setShowDeleteStudentModal(false);
+              props.setSingleStudentDelete(false);
+              
+              // fetchSemesterWiseStudent(current_semID);
             }}
             onClose={() => {
-              if (singleStudentDelete) {
-                setIDs_studentSelected([]);
-              }
-              // TODO: single student delete pending
-              //   singleStudentDelete = false;
-              setshowDeleteModal(false);
+              props.setSingleStudentDelete(false);
+              props.setShowDeleteStudentModal(false);
             }}
             ids={IDs_studentSelected}
+            singleStudentDelete={props.singleStudentDelete}
+            studentDetail={props.studentDetail}
+            setIDs_studentSelected={setIDs_studentSelected}
+            setStudentsData={props.setStudentsData}
+            studentsData={props.studentsData}
           />
         )}
         {showChangeSemModal && (
@@ -172,27 +179,3 @@ export const Actions = (props) => {
     </>
   );
 };
-const SingleStudentActions = (props) => {
-  const { student, showEditModal } = props;
-
-  return (
-    <>
-      <img
-        src={EditPNG}
-        alt="Edit Student"
-        id="edit-student"
-        className="studentActionBtn studentActionTable"
-        onClick={() => showEditModal(student)}
-      />
-      <img
-        src={DeleteNoShadow}
-        alt="Edit Student"
-        id="delete-student"
-        className="studentActionBtn studentActionTable deleteIcon"
-        onClick={() => setshowDeleteModal(true)}
-      />
-    </>
-  );
-};
-
-export { SingleStudentActions };
