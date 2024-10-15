@@ -1,7 +1,7 @@
 const Result = () =>{
     return (<>
-        <br/>
-        <p>Here will come the results page.</p>
+        <br />
+        <h3 style={{textAlign:"center",width:"100%"}}>Here will come the Results Page.</h3>
     </>)
 }
 export default Result
