@@ -4,6 +4,7 @@
   letter-spacing: 0.5px;
   border-radius: 38px;
   font-weight: bold;
+  cursor: pointer;
 }
 .jst-btn:hover {
   color: white;
@@ -22,5 +23,7 @@
   background-color: white;
 }
 .studentActionBtn {
-  height: 30px;
+  height: 33px;
+  display: flex;
+  cursor: pointer;
 }
