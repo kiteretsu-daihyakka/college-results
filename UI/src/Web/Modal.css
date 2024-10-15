@@ -9,9 +9,9 @@
 }
 
 .student-page-modal .dialog-modal-container {
-  top: auto;
+  top: 16%;
   height: 500px;
-  width: 100%;
+  width: auto;
   margin-left: 19%;
   position: fixed;
   z-index: 1;
@@ -19,8 +19,11 @@
 .student-page-modal .dialog-modal{
   margin: 0;
 }
+.student-page-modal .dialog-modal button{
+  margin-right: 4%;
+}
 .dialog-modal {
-  width: 23rem;
+  width: 29rem;
   border: 0;
   border-radius: 0.5rem;
   box-shadow: 0 0 0.5rem 0.25rem hsl(0 0% 0% / 10%);
@@ -28,6 +31,9 @@
   margin-top: 3%;
   padding: 0px;
   z-index: 1;
+}
+.deleteModal .dialog-modal{
+  width: 29rem;
 }
 .dialog-modal button {
   background-color: #0f3948;
@@ -38,8 +44,8 @@
   width: 80px;
   height: 30px;
   border: none;
-  margin-top: 18%;
-  margin-bottom: 10%;
+  margin-top: 6%;
+  margin-bottom: 6%;
 }
 .backdrop-modal {
   position: fixed;
