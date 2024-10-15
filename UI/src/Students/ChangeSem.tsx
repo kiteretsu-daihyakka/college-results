@@ -4,11 +4,12 @@ import { useEffect, useRef, useState } from "react";
 import Button from "../Web/Button.jsx";
 import { domain } from "../Utils/Variables.js";
 import Modal from "../Web/Modal.jsx";
-import Toast from '../Web/Toast.jsx';
+import Toast from "../Web/Toast.jsx";
 
 export const ChangeSem = (props) => {
   const changeSemDomain = "student/semester";
   const newSem = useRef();
+  const [confirmModal, setConfirmModal] = useState(false);
   const changeSemester = async (e) => {
     e.preventDefault();
     let data = {
@@ -26,14 +27,14 @@ export const ChangeSem = (props) => {
     };
     axios(config)
       .then((response) => {
-        <Toast>Semester Student(s) semester changed Successfully.</Toast>
+        <Toast>Semester Student(s) semester changed Successfully.</Toast>;
         props.onSuccessChange();
         props.refresh();
       })
       .catch((errors) => {
         console.log(errors);
       });
-  }
+  };
   return (
     <Modal
       open={true}
@@ -47,27 +48,43 @@ export const ChangeSem = (props) => {
           <div className="modal-title">Change Semester</div>
         </div>
         <div className="modal-body addStudentModal">
-          <label className="newStudentFieldLabel1">Select Semester</label>
+          <label className="newStudentFieldLabel1">
+            {confirmModal
+              ? `Move these students to ${
+                  props.semesters.filter(
+                    (sem) => parseInt(sem.id) === parseInt(newSem.current.value)
+                  )[0]["name"]
+                }?`
+              : "Select Semester"}
+          </label>
+
           <select
             className="newStudentFieldInput1"
             ref={newSem}
             required
-            defaultValue={(parseInt(props.current_semID) + 1)}
+            defaultValue={parseInt(props.current_semID) + 1}
+            style={{ display: `${confirmModal ? "none" : "block"}` }}
           >
             <option value="">Select Semester</option>
             {props.semesters.map((sem) => {
-             if (sem.id !== props.current_semID){
-                return <option key={sem.id} value={sem.id}>
-                {sem.name}
-              </option>
-             }
+              if (sem.id !== props.current_semID) {
+                return (
+                  <option key={sem.id} value={sem.id}>
+                    {sem.name}
+                  </option>
+                );
+              }
             })}
           </select>
         </div>
         <div className="modal-footer">
-          <Button type="submit">
-            Proceed
-          </Button>
+          {confirmModal ? (
+            <Button type="submit">Confirm</Button>
+          ) : (
+            <Button type="button" onClick={(e) => {e.preventDefault();setConfirmModal(true)}}>
+              Proceed
+            </Button>
+          )}
           <Button type="button" onClick={props.onClose}>
             Cancel
           </Button>
