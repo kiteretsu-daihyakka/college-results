@@ -213,7 +213,7 @@
 
 .addStudentModal {
     display: grid;
-    grid-template-columns: 30% 60%;
+    grid-template-columns: 29% 62%;
     grid-template-areas: "Label1 Input1" "Label2 Input2" "Label3 Input3";
     row-gap: 10px;
     padding-top: 6%;
@@ -228,8 +228,9 @@
     height: 40px;
 }
 .addStudentModal label,
-.addStudentModal input {
+.addStudentModal input,  .addStudentModal select{
     font-size: 15px;
+    padding: 5px;
 }
 
 .student-page-modal {
