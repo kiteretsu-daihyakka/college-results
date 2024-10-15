@@ -19,7 +19,7 @@ const Subjects = (props) => {
       <Title>Subjects</Title>
       
       <br />
-      <h3>Subjects:</h3>
+      <h3 style={{textAlign:"center",width:"100%"}}>Here will come the Subjects Page.</h3>
       {subs.map((sub) => (
         <Subject key={sub.name} name={sub.name} />
       ))}
