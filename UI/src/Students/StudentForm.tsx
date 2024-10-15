@@ -1,6 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { useEffect, useRef, useState } from "react";
+import { useParams } from "react-router-dom";
 import Modal from "../Web/Modal";
 import Button from "../Web/Button";
 import { domain } from "../Utils/Variables";
@@ -25,6 +26,7 @@ This component returns a form to add new student or edit existing student detail
 */
 
 export const StudentForm = (props) => {
+  const params = useParams();
   const studentDomain = "student";
   let newStudentEmail = useRef();
   let newStudentName = useRef();
@@ -34,6 +36,8 @@ export const StudentForm = (props) => {
     name: studentName,
     email: studentEmail,
   } = props?.studentDetail;
+  
+  let current_semID = parseInt(params["semester"]);
   async function addNewStudent() {
     let data = {
       id: studentID,
@@ -62,7 +66,7 @@ export const StudentForm = (props) => {
         } else {
           <Toast>New Student added successfully.</Toast>;
         }
-        props.refresh();
+        props.fetchSemesterWiseStudent(current_semID);
       })
       .catch((errors) => {
         console.log(errors);
@@ -74,7 +78,7 @@ export const StudentForm = (props) => {
   }
   return (
     <Modal
-      open={props.showModal}
+      open={true}
       onClose={props.hideModal}
       className="student-page-modal"
       onBlurClass={`${true ? "" : "no-blur"}`}
@@ -85,11 +89,12 @@ export const StudentForm = (props) => {
           <div className="modal-title">{props.mode} Student</div>
         </div>
         <div className="modal-body addStudentModal">
-          <label className="newStudentFieldLabel1">Select Semester</label>
+          <label className="newStudentFieldLabel1" htmlFor="selectSemester">Select Semester</label>
           <select
             className={`newStudentFieldInput1 ${
               props.mode === "Edit" ? "disabled" : ""
             }`}
+            id="selectSemester"
             defaultValue={props.current_semID}
             style={{
               backgroundImage: `url(${DropdownArrow})`,
