@@ -12,6 +12,7 @@ import Students from "./Students/Students.tsx";
 /* providers */
 import AuthProvider from "./hooks/AuthProvider.jsx";
 
+
 /* Variables */
 
 function App() {
