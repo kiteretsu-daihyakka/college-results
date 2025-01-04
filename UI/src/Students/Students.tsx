@@ -1,12 +1,13 @@
-import axios, { all } from "axios";
+// import axios, { all } from "axios";
 import { useEffect, useRef, useState } from "react";
-import { domain } from "../Utils/Variables";
 import { useParams } from "react-router-dom";
 import { useAuth } from "../hooks/AuthProvider";
 import "./styles/Students.scss";
+import fetchSemesterWiseStudent from "../hooks/StudentsProvider.jsx";
 import fetchSemesters from "../Home/SemesterCards/SemesterProvider.tsx";
 import Loading, { SingleLineLoading } from "../Home/SemesterCards/Loading.tsx";
 import { NoStudents } from "./NoStudents.tsx";
+import {studentsPage} from "../Utils/Variables";
 
 import Title from "../Web/Title";
 import React from "react";
@@ -17,8 +18,6 @@ import { Actions } from "./Actions.tsx";
 import ActionsSingleStudent from "./ActionsSingleStudent.jsx";
 
 function Students(props) {
-  const studentDomain = "student";
-  const studentDomainSemFilter = studentDomain.concat("?semester=");
   const auth = useAuth();
   const params = useParams();
   const [showEditStudentModal, setShowEditStudentModal] = useState(false);
@@ -37,24 +36,18 @@ function Students(props) {
 
   // }
   let current_semID = parseInt(params["semester"]);
-  async function fetchSemesterWiseStudent(current_id) {
+  async function fetchSemestersAndStudents(semesterID) {
     setStudentsData(null);
     setIDs_studentSelected([]);
     if (semesters[0] == null) {
-      let sems = await fetchSemesters();
-      setSemesters(sems.semesters);
+      setSemesters(await fetchSemesters());
     }
-
-    axios
-      .get(`${domain.concat(studentDomainSemFilter).concat(current_id)}`)
-      .then((response) => {
-        setStudentsData(response.data.data.semester.students);
-      });
+    setStudentsData(await fetchSemesterWiseStudent(semesterID));
   }
 
   useEffect(() => {
-    fetchSemesterWiseStudent(current_semID);
-  }, []);
+    fetchSemestersAndStudents(current_semID);
+  }, [current_semID]);
 
   function checkboxHandler(e, selectAll = false) {
     if (e.target.checked) {
@@ -114,7 +107,7 @@ function Students(props) {
         IDs_studentSelected={IDs_studentSelected}
         current_semID={current_semID}
         semesters={semesters}
-        fetchSemesterWiseStudent={fetchSemesterWiseStudent}
+        fetchSemesterWiseStudent={fetchSemestersAndStudents}
         setIDs_studentSelected={setIDs_studentSelected}
         singleStudentDelete={singleStudentDelete}
         setSingleStudentDelete={setSingleStudentDelete}
@@ -128,7 +121,7 @@ function Students(props) {
       <SemFilter
         semesters={semesters}
         current_semID={current_semID}
-        fetchSemesterWiseStudent={fetchSemesterWiseStudent}
+        action_path={studentsPage}
       />
       <div className="studentsTable">
         <>
@@ -185,7 +178,7 @@ function Students(props) {
                                 current_semID={current_semID}
                                 semesters={semesters}
                                 fetchSemesterWiseStudent={
-                                  fetchSemesterWiseStudent
+                                  fetchSemestersAndStudents
                                 }
                                 setStudentDetail={setStudentDetail}
                                 setShowEditStudentModal={
