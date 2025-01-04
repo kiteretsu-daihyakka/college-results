@@ -6,3 +6,27 @@
 /* .highlight:hover{
     background-color: #E9F4FA;
 } */
+.invalid-input{
+    border-color: red;
+}
+/*.chip{*/
+/*    border-radius: 10%;*/
+/*    background-color: #0f3948;*/
+/*    color: white;*/
+/*}*/
+
+/* Remove arrows from input type number */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+.hiddenElement{
+    display: none;
+}
