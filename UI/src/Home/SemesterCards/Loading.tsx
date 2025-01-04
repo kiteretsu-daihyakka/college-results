@@ -27,5 +27,11 @@ const BoxLoading = (props) => {
     </div>
   );
 };
+const SingleBoxLoading = (props) => {
+
+    return (
+            <div className={`square ${props.className}`}></div>
+    );
+};
 export default Loading;
-export {SingleLineLoading, BoxLoading};
+export {SingleLineLoading, BoxLoading, SingleBoxLoading};
