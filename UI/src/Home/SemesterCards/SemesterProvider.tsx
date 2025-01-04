@@ -13,7 +13,7 @@ let semesterURL = domain.concat("semester");
 // }
 async function fetchSemesters () {
     const response = await axios(semesterURL);
-    return response.data.data;
+    return await response.data.data.semesters;
 }
 // export default SemesterProvider;
 export default fetchSemesters;
