@@ -1,29 +1,65 @@
 .jst-btn {
-  background-color: white;
-  color: #0f3948;
-  letter-spacing: 0.5px;
-  border-radius: 38px;
-  font-weight: bold;
-  cursor: pointer;
+    background-color: white;
+    color: #0f3948;
+    letter-spacing: 0.5px;
+    border-radius: 38px;
+    font-weight: bold;
+    cursor: pointer;
 }
-.jst-btn:hover {
-  color: white;
-  background-color: #0f3948;
+
+.jst-btn:not(.subj):hover{
+    color: white;
+    background-color: #0f3948;
 }
+
 .jst-btn,
 .jst-btn:hover {
-  border: 2px solid #0f3948;
+    border: 2px solid #0f3948;
 }
-.jst-btn.primary {
-  background-color: #0f3948;
-  color: white;
+
+.jst-btn.primary,.jst-btn.subj.primary {
+    background-color: #0f3948;
+    color: white;
 }
-.jst-btn.primary:hover {
-  color: #0f3948;
-  background-color: white;
+.jst-btn.subj:hover{
+    color: #0f3948;
+    background-color: white
 }
+.jst-btn.primary:hover{
+    color: #0f3948;
+    background-color: white;
+}
+
 .studentActionBtn {
-  height: 33px;
-  display: flex;
-  cursor: pointer;
+    height: 33px;
+    display: flex;
+    cursor: pointer;
 }
+/* UpdateMarks start */
+.update-marks-container .divRightArrow .jst-btn,.update-marks-container .divLeftArrow .jst-btn{
+    border-radius: 20px;
+    background-color: #EAEAEA;
+    height: 40px;
+    width: 40px;
+    border: none;
+    margin-left: 15px;
+    margin-right: 20px;
+    box-shadow: 1px 1px 24px 45px white;
+
+}
+.subjectFilter .jst-btn{
+    height: 40px;
+    font-size: 15px;
+    border-radius: 10px;
+    text-wrap: nowrap;
+}
+.jst-btn.subj {
+    background-color: #E9F4FA;
+}
+.subjectFilter .jst-btn.primary .subjectYetToSelect{
+    display: none;
+}
+.subjectFilter .jst-btn:not(.primary) .subjectSelected{
+    display: none;
+}
+/* UpdateMarks end */
