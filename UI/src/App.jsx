@@ -13,7 +13,7 @@ import UpdateMarks from "./Marks/UpdateMarks.tsx";
 /* providers */
 import AuthProvider from "./hooks/AuthProvider.jsx";
 import HeaderWrapper from "./Wrappers/HeaderWrapper";
-import ProtectedRoute from "./Web/Security/ProtectedRoute";
+import ProtectedRoute from "./Wrappers/Security/ProtectedRoute";
 
 
 /* Variables */
