@@ -19,6 +19,7 @@ nav.header.navbar{
     margin-right: 30px;
     font-family: "Red Hat Text", 'Times New Roman';
     letter-spacing: 1px;
+    text-wrap: nowrap;
 }
 
 /* Mobile screen */

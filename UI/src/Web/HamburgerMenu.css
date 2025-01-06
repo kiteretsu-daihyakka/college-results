@@ -37,7 +37,7 @@
   display: grid;
   align-items: center;
   grid-template-columns: auto auto;
-  grid-template-areas: "hd close" "loginbtn loginbtn" "res resarrow" "sub subarrow" "rest rest";
+  grid-template-areas: "hd close" "loginbtn loginbtn" "ham-link ham-link-arrow" "ham-link ham-link-arrow" "ham-link ham-link-arrow" "ham-link ham-link-arrow" "rest rest";
   box-shadow: 1px 1px 5px lightgray;
 }
 .rest {
@@ -61,10 +61,11 @@
 }
 .hamburger-menu-teacher-login,
 .ham-link,
-.rightArrow {
+.ham-link-arrow {
   border-bottom: 1px solid black;
   height: 100%;
-  padding-top: 12px;
+  padding-top: 7px;
+  padding-bottom: 7px;
 }
 .hamburger-menu-header-closeIcn,
 .hamburger-menu .logo {
@@ -79,10 +80,10 @@
   border-left: 10px solid #0f3948;
 }
 .hamburger-menu-header-closeIcn,
-.rightArrow {
+.ham-link-arrow {
   text-align: center;
 }
-.rightArrow img {
+.ham-link-arrow img {
   height: 15px;
   width: 10px;
 }

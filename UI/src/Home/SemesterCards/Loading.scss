@@ -24,6 +24,9 @@
 // .text-line:first-of-type {
 //   width: 50%;
 // }
+.text-line.fullwidth.forceWidth{
+  width: 200px;
+}
 .text-line.fullwidth{
   width: 70%;
 }
@@ -50,4 +53,14 @@
 }
 .square:first-of-type{
   margin-top: 5%;
+}
+.square.smallHeight{
+  width: 30px !important;
+  height: 20px;
+  right: 0 !important;
+  margin-bottom: 2%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 0;
+  //padding: 0;
 }

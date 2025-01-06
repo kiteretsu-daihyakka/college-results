@@ -25,16 +25,15 @@ const SemesterCards = (props) => {
 
   async function fetchSemestersOverview() {
     setLoading(true);
-
     let sems = await fetchSemesters();
     let sem_wise_students = { 1: 0, 2: 0, 3: 0, 4: 0 };
     await fetchStudents(sem_wise_students);
-    console.log(sem_wise_students);
-    sems.semesters.map((sem) => {
+    // console.log(sem_wise_students);
+    sems.map((sem) => {
       sem["studCount"] = sem_wise_students[sem?.id];
       return sem;
     });
-    setSemesters(sems.semesters);
+    setSemesters(sems);
     setLoading(false);
   }
   useEffect(() => {
