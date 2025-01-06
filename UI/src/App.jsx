@@ -9,7 +9,7 @@ import Subjects from "./Teacher/Subject/Subjects.tsx";
 import TeacherLogin from "./Teacher/TeacherLogin/TeacherLogin.tsx";
 import Students from "./Students/Students.tsx";
 import UpdateMarks from "./Marks/UpdateMarks.tsx";
-
+import BreadcrumbsSeperator from "./Web/Breadcrumbs/Breadcrumbs";
 /* providers */
 import AuthProvider from "./hooks/AuthProvider.jsx";
 import HeaderWrapper from "./Wrappers/HeaderWrapper";
@@ -24,7 +24,15 @@ function App() {
     });
 
     const _ = require('lodash');
-
+    // const breadcrumbs = [
+    //   <Link underline="hover" key="1" color="inherit" href="/">
+    //     Home
+    //   </Link>,
+    //   { label: 'Home', link: '/' },
+    //   { label: 'Results', link: '/results' },
+    //   { label: 'Students', link: '/student/semester/:semester' },
+    //   { label: 'Subjects', link: '/subjects' },
+    //   ];
     return (
         <AuthProvider>
             {/* <SemesterProvider> */}
@@ -34,6 +42,7 @@ function App() {
                         path="/"
                         element={
                             <HeaderWrapper isMobileScreen={isMobileScreen}>
+                                <BreadcrumbsSeperator />
                                 <section
                                     className={`${isMobileScreen ? "mobileScreen" : ""}`}
                                 >
@@ -46,6 +55,7 @@ function App() {
                         path="/students/semester/:semester"
                         element={
                             <HeaderWrapper isMobileScreen={isMobileScreen}>
+                                <BreadcrumbsSeperator path="Students"/>
                                 <section
                                     className={`${isMobileScreen ? "mobileScreen" : ""}`}
                                 >
@@ -70,6 +80,7 @@ function App() {
                         path="/subjects"
                         element={
                             <HeaderWrapper isMobileScreen={isMobileScreen}>
+                                <BreadcrumbsSeperator path='Subjects' />
                                 <section
                                     className={`${isMobileScreen ? "mobileScreen" : ""}`}
                                 >
@@ -82,6 +93,7 @@ function App() {
                         path="/results"
                         element={
                             <HeaderWrapper isMobileScreen={isMobileScreen}>
+                                <BreadcrumbsSeperator path='Result' />
                                 <section
                                     className={`${isMobileScreen ? "mobileScreen" : ""}`}
                                 >
