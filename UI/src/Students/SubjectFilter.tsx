@@ -1,5 +1,5 @@
 import React, {useState, useRef} from 'react';
-import './SubjectFilter.css';
+import './styles/SubjectFilter.css';
 import axios from "axios";
 import Button from "../Web/Button";
 import arrowRight from "../images/PNG/arrow-chevron-right.svg";
