@@ -1,0 +1,82 @@
+.update-marks-container{
+    padding-top: 10px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: 87% auto;
+    grid-template-areas: "update-marks-breadcrumb-toast update-marks-breadcrumb-toast" "semesterFilter semesterFilter" "subjectFilter marksSubmitBtn" "marksTable marksTable";
+    align-items: center;
+    align-self: center;
+}
+.update-marks-container .messages{
+    grid-area: update-marks-breadcrumb-toast;
+    /*padding-bottom: 10px;*/
+}
+.update-marks-container.gridWithoutSubmit {
+    grid-template-areas: "update-marks-breadcrumb-toast update-marks-breadcrumb-toast" "semesterFilter semesterFilter" "subjectFilter subjectFilter" "marksTable marksTable";
+}
+.breadcrumb{
+    grid-area: update-marks-breadcrumb-toast;
+    /*height: 20px;*/
+}
+.marksSubmitBtn{
+    grid-area: marksSubmitBtn;
+    height: 58px;
+    font-size: large;
+    border-radius: 8px;
+}
+.marksSubmitBtn, .subjectFilter{
+    margin-top: 8px;
+    margin-bottom: 6px;
+}
+.markInput{
+    border-width: 0 0 1px 0;
+    background-color: #F3F3F3;
+    outline: none;
+    text-align: center;
+    width: 30px;
+    height: 20px;
+    /*margin-top: 10px;*/
+    /*margin-bottom: 2px;*/
+    /*margin-top: auto;*/
+    /*margin-bottom: auto;*/
+}
+
+.markInput:focus{
+    border-width: 0 0 2px 0;
+}
+.subject-code-header{
+    width: 7%;
+    text-align: center;
+    transition: all 2s;
+    position: relative;
+}
+.subject-code-header.slideleft, td.marks-field.slideleft{
+    width: 0 !important;
+    /*visibility: hidden;*/
+    /*background-color: yellowgreen;*/
+}
+.subject-code-header:last-of-type,td.marks-field:last-of-type{
+    width: auto;
+    /*text-align: left;*/
+}
+td.marks-field{
+    text-align: center;
+    transition: all 2s;
+}
+
+.marksTable{
+    grid-area: marksTable;
+    width: 100%;
+}
+.marksTable .name{
+    width: 22%;
+    padding-left:3%;
+}
+/*.marksTable .name{*/
+/*    font-weight: bold;*/
+/*}*/
+.studentsTable.marksTable tbody tr:hover{
+    background-color: white;
+}

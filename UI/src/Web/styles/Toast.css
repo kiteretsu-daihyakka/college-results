@@ -1,21 +1,71 @@
 .toast{
-    background-color: #29A1CD;
+    font-family: "Red Hat Text";
+    letter-spacing: 0.5px;
+    font-weight: bold;
     color: white;
+    background-color: #29A1CD;
     /* display: block ; */
-    height: 50px;
+    height: 35px;
     display: flex !important;
     align-items: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: fit-content;
+    box-shadow: 0 0.3rem 0.2rem rgba(0, 0, 0, 0.15);
 }
 .toast img{
-    height: 25px;
+    height: 20px;
     cursor: pointer;
+    margin-left: 15px;
 }
-.progress.active:before {
-    animation: progress 5s linear forwards;
+/*.progress.active:before {*/
+/*    animation: progress 5s linear forwards;*/
+/*}*/
+
+/*@keyframes progress {*/
+/*    100% {*/
+/*        right: 100%;*/
+/*    }*/
+/*}*/
+
+/* trial 1 */
+
+/* Styling the border and box
+effect of the progress bar*/
+.progress-bar {
+    width: 295px;
+    height: 4px;
+    margin-right: 8px;
+    margin-bottom: 2px;
+    /*margin-top: 10px;*/
+    /*border: 1px solid #565656;*/
+    border-radius: 5px;
+    box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.15);
+    z-index: 0;
 }
-  
+
+/* Stylingthe background color of each
+animation and border radius */
+.percentage {
+    display: block;
+    height: 100%;
+    background-color: white;
+    border-radius: 5px;
+    animation: progress 5000ms ease  1;
+}
+
+/* Assigning width of each languages*/
+.c {
+    width: 100%;
+    /*border-width: 0 0 1px 0;*/
+    /*border-color: #29A1CD;*/
+    /*border-style: solid;*/
+}
+
+/* Animating the progress bar by
+initially starting from 0*/
 @keyframes progress {
-    100% {
-        right: 100%;
+    from {
+        width: 0;
     }
 }

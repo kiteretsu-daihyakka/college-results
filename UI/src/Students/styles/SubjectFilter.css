@@ -1,0 +1,42 @@
+.subjectFilter{
+    grid-area: subjectFilter;
+    display: flex;
+    column-gap: 7px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: 58px;
+    align-items: center;
+    /*position: sticky;*/
+}
+.subjectFilter .subj:last-of-type{
+    /*margin-right: 17px;*/
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.subjectFilter::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.subjectFilter {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+.divRightArrow{
+    right: -2px;
+}
+.divRightArrow,.divLeftArrow{
+    /*background-color: white;*/
+    /*box-shadow: 0 0 17px rgba(255, 255, 255, 0.18);*/
+    /*box-shadow: 10px 10px 20px 22px white;*/
+    border-radius: 5px 0 0 5px;
+    position: sticky;
+}
+.divRightArrow .jst-btn,.divLeftArrow .jst-btn{
+    opacity: 0;
+}
+.divRightArrow .jst-btn:hover,.divLeftArrow .jst-btn:hover{
+    opacity: 1;
+}
+.divLeftArrow{
+    left: -5px;
+}

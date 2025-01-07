@@ -13,7 +13,7 @@ function SemesterCard(props) {
     }
   }
   const studentLinkClicked = () => {
-    navi(`student/semester/${props.semData["id"]}`);
+    navi(`students/semester/${props.semData["id"]}`);
   }
   let name = null;
   let subjects = null;

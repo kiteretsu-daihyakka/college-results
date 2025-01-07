@@ -31,7 +31,7 @@ const HamburgerMenu = (props) => {
         {props.links.map((lnk, index) => (
           <React.Fragment key={index}>
             <div className="ham-link">{lnk}</div>
-            <div className="rightArrow">
+            <div className="ham-link-arrow">
               <img src={RightArrow} alt="Right Arrow" />
             </div>
           </React.Fragment>

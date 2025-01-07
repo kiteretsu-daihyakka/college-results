@@ -1,16 +1,18 @@
 .students-page {
     display: grid;
     grid-template-columns: 30% auto;
-    grid-template-areas: "success success" "searchBar searchBar" "studentActions studentActions" "semesterFilter studentsTable";
+    grid-template-areas: "toast-message toast-message" "searchBar searchBar" "studentActions studentActions" "semesterFilter studentsTable";
     font-family: "Red Hat Text";
 }
 
 .messages {
-    grid-area: success;
-    height: 70px;
+    grid-area: toast-message;
+    //height: 70px;
     display: flex;
     justify-content: flex-end;
-    align-items: center;
+    align-items: flex-end;
+    align-content: center;
+    flex-direction: column;
 }
 
 .searchStudent {
@@ -23,7 +25,6 @@
     margin-bottom: 30px;
     display: flex;
     align-items: flex-end;
-
 }
 
 .searchStudent input {
@@ -184,7 +185,9 @@
 .studentsTable tr {
     border-bottom: 1px solid black;
 }
-
+.studentsTable thead tr {
+    border-bottom: 2px solid black;
+}
 .studentsTable tbody tr:hover,
 .selectedRow {
     background-color: #F3F3F3;
